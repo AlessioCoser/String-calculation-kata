@@ -23,4 +23,11 @@ public class StringCalculatorTest {
         assertEquals(7, calculator.add("3,4"));
         assertEquals(2, calculator.add("0,2"));
     }
+
+    @Test
+    public void addUnknowAmountOfNumber() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(13, calculator.add("1,2,5,3,2"));
+
+    }
 }
