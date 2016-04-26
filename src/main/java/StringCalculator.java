@@ -1,14 +1,16 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 public class StringCalculator {
 
-    public int add(String string) {
+    public int add(String string) throws StringCalculatorException {
         int sum = 0;
         String[] parts = getNumberStrings(string);
 
-        for (String part : parts)
+        for (String part : parts) {
+            if (stringToInt(part) < 0) {
+                throw new StringCalculatorException("negatives not allowed");
+            }
             sum += stringToInt(part);
+        }
 
         return sum;
     }

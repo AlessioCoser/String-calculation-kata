@@ -1,7 +1,9 @@
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class StringCalculatorTest {
+
     @Test
     public void addEmptyStringIsZero() throws Exception {
         StringCalculator calculator = new StringCalculator();
@@ -43,5 +45,15 @@ public class StringCalculatorTest {
         assertEquals(8, calculator.add("//;\n1;2;5"));
         assertEquals(8, calculator.add("//:\n1:2:5"));
         assertEquals(8, calculator.add("//,\n1,2,5"));
+    }
+
+    @Test
+    public void trowExceptionIfNegativeNumber() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        try {
+            calculator.add("//;\n1;-2;5");
+        }catch (StringCalculatorException e) {
+            assertEquals("negatives not allowed", e.getMessage());
+        }
     }
 }
