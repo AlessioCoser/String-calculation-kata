@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class StringCalculator {
     public int add(String numbers) {
         int sum = 0;
-        String[] parts = numbers.split(",");
+        String[] parts = numbers.split("(,)|(\\n)");
 
         for (String part: parts)
             sum += stringToInt(part);

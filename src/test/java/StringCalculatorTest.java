@@ -25,9 +25,16 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void addUnknowAmountOfNumber() throws Exception {
+    public void addUnknownAmountOfNumber() throws Exception {
         StringCalculator calculator = new StringCalculator();
         assertEquals(13, calculator.add("1,2,5,3,2"));
+
+    }
+
+    @Test
+    public void addNumbersWithNewLineDelimiter() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(8, calculator.add("1\n2,5"));
 
     }
 }
