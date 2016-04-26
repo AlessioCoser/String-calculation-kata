@@ -34,7 +34,14 @@ public class StringCalculatorTest {
     @Test
     public void addNumbersWithNewLineDelimiter() throws Exception {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(8, calculator.add("1\n2,5"));
+        assertEquals(8, calculator.add("//\n\n1\n2\n5"));
+    }
 
+    @Test
+    public void setDelimiterOnFirstLine() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(8, calculator.add("//;\n1;2;5"));
+        assertEquals(8, calculator.add("//:\n1:2:5"));
+        assertEquals(8, calculator.add("//,\n1,2,5"));
     }
 }
